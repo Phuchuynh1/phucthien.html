@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Seoul Media — Trang Truyền Thông Hàn Quốc</title>
+  <meta name="description" content="Mẫu trang truyền thông Hàn Quốc hiện đại, chuẩn SEO, hỗ trợ dark mode và giao diện responsive." />
+  <meta property="og:title" content="Seoul Media — Trang Truyền Thông Hàn Quốc" />
+  <meta property="og:description" content="Mẫu trang truyền thông Hàn Quốc hiện đại, chuẩn SEO, hỗ trợ dark mode và giao diện responsive." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://picsum.photos/1200/630" />
+  <meta name="theme-color" content="#0f172a" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b1020;          /* midnight */
+      --card:#111731;        /* deep slate */
+      --text:#e6eaf6;        /* snow */
+      --muted:#a6b0d0;       
+      --brand:#0052a4;       /* blue of Taegukgi */
+      --brand-2:#c60c30;     /* red of Taegukgi */
+      --ring:rgba(0,82,164,.25);
+      --shadow:0 10px 20px rgba(0,0,0,.25);
+      --radius:18px;
+      --gap:18px;
+    }
+    :root.light{
+      --bg:#f7f8fc;
+      --card:#ffffff;
+      --text:#0b1020;
+      --muted:#4a5568;
+      --ring:rgba(198,12,48,.2);
+      --shadow:0 10px 20px rgba(2,6,23,.12);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:"Nunito", "Noto Sans KR", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:radial-gradient(1200px 600px at 10% -10%, rgba(198,12,48,.15), transparent),
+                 radial-gradient(900px 500px at 110% -20%, rgba(0,82,164,.18), transparent), var(--bg);
+      color:var(--text); line-height:1.6;
+    }
+    a{color:inherit; text-decoration:none}
+    img{max-width:100%; display:block; border-radius:12px}
+    .container{max-width:1200px; margin:auto; padding:20px}
+    /* Header */
+    header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(160%) blur(10px); background:linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.25)); border-bottom:1px solid rgba(255,255,255,.06)}
+    :root.light header{background:rgba(255,255,255,.8)}
+    .topbar{display:flex; align-items:center; gap:12px; justify-content:space-between; padding:12px 20px}
+    .brand{display:flex; align-items:center; gap:12px}
+    .logo{width:44px; height:44px; display:grid; place-items:center; border-radius:50%; background:conic-gradient(from 180deg, var(--brand), var(--brand-2)); color:#fff; font-weight:900; box-shadow:var(--shadow)}
+    .brand h1{font-size:1.25rem; margin:0; font-weight:900; letter-spacing:.3px}
+    .badge{font-size:.72rem; padding:4px 8px; border-radius:999px; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.12)}
+    :root.light .badge{background:rgba(15,23,42,.06); border-color:rgba(2,6,23,.08)}
+    .actions{display:flex; align-items:center; gap:8px}
+    .btn{padding:10px 14px; border-radius:12px; border:1px solid rgba(255,255,255,.12); background:rgba(255,255,255,.06); color:var(--text); cursor:pointer}
+    :root.light .btn{background:#fff; border-color:#e6eaf6}
+    .btn.primary{background:linear-gradient(135deg, var(--brand), var(--brand-2)); border:none; color:#fff; box-shadow:var(--shadow)}
+    .search{display:flex; gap:8px; align-items:center; background:rgba(255,255,255,.06); padding:8px 12px; border-radius:12px; border:1px solid rgba(255,255,255,.12)}
+    :root.light .search{background:#fff; border-color:#e6eaf6}
+    .search input{background:transparent; border:none; outline:none; color:var(--text); width:200px}
+    nav{border-top:1px solid rgba(255,255,255,.06)}
+    .menu{display:flex; gap:16px; padding:10px 20px; overflow:auto}
+    .menu a{padding:8px 12px; border-radius:10px}
+    .menu a.active, .menu a:hover{background:linear-gradient(135deg, rgba(0,82,164,.25), rgba(198,12,48,.25))}
+    /* Breaking */
+    .ticker{display:flex; gap:12px; align-items:center; font-weight:700; padding:12px 20px; background:linear-gradient(90deg, rgba(0,82,164,.15), rgba(198,12,48,.15)); border-bottom:1px solid rgba(255,255,255,.06)}
+    .ticker .dot{width:10px; height:10px; border-radius:50%; background:var(--brand-2); box-shadow:0 0 0 6px rgba(198,12,48,.18)}
+    /* Layout */
+    .grid{display:grid; grid-template-columns:2fr 1fr; gap:var(--gap); margin-top:var(--gap)}
+    @media (max-width: 960px){ .grid{grid-template-columns:1fr} }
+    .card{background:var(--card); border:1px solid rgba(255,255,255,.08); border-radius:var(--radius); padding:16px; box-shadow:var(--shadow)}
+    :root.light .card{border-color:#eef2ff}
+    .headline{display:grid; grid-template-columns:1.2fr 1fr; gap:var(--gap)}
+    @media (max-width: 800px){ .headline{grid-template-columns:1fr} }
+    .k-badge{display:inline-block; font-size:.72rem; padding:6px 10px; border-radius:999px; background:rgba(0,82,164,.25); border:1px solid rgba(0,82,164,.35); margin-bottom:8px}
+    .k-badge.red{background:rgba(198,12,48,.25); border-color:rgba(198,12,48,.35)}
+    .muted{color:var(--muted)}
+    .meta{display:flex; gap:10px; align-items:center; font-size:.9rem}
+    .meta .sep{opacity:.5}
+    .grid-articles{display:grid; grid-template-columns:repeat(3, 1fr); gap:var(--gap)}
+    @media (max-width: 1100px){ .grid-articles{grid-template-columns:repeat(2, 1fr)} }
+    @media (max-width: 680px){ .grid-articles{grid-template-columns:1fr} }
+    .article{display:flex; flex-direction:column; gap:10px}
+    .article h3{margin:0; font-size:1.05rem}
+    .article .thumb{aspect-ratio: 16/9; object-fit:cover}
+    /* Sidebar */
+    .side-section + .side-section{margin-top:var(--gap)}
+    .list{display:grid; gap:12px}
+    .list a{display:grid; grid-template-columns:96px 1fr; gap:12px; align-items:center}
+    .list img{width:96px; height:64px; object-fit:cover}
+    /* Footer */
+    footer{margin-top:32px; border-top:1px solid rgba(255,255,255,.08); padding:24px 20px}
+    .footer-grid{display:grid; grid-template-columns:2fr 1fr 1fr; gap:var(--gap)}
+    @media (max-width: 900px){ .footer-grid{grid-template-columns:1fr 1fr} }
+    @media (max-width: 600px){ .footer-grid{grid-template-columns:1fr} }
+    .small{font-size:.9rem}
+    /* Forms */
+    .input{width:100%; padding:12px 14px; border-radius:12px; border:1px solid rgba(255,255,255,.12); background:rgba(255,255,255,.04); color:var(--text)}
+    :root.light .input{background:#fff; border-color:#e6eaf6; color:#0b1020}
+    .input:focus{outline:2px solid var(--ring)}
+    .btn.block{width:100%; text-align:center}
+    /* Util */
+    .row{display:flex; gap:10px; align-items:center}
+    .space{height:12px}
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="topbar container">
+      <div class="brand">
+        <div class="logo">한</div>
+        <div>
+          <h1>Seoul Media</h1>
+          <div class="muted small">Tin tức • Văn hoá • K‑Pop • Ẩm thực</div>
+        </div>
+        <span class="badge">한국 뉴스</span>
+      </div>
+      <div class="actions">
+        <label class="search" aria-label="Tìm kiếm">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="search" placeholder="Tìm bài viết, chủ đề..." />
+        </label>
+        <button class="btn" id="modeToggle" title="Chuyển giao diện">🌓</button>
+        <button class="btn primary">Đăng ký</button>
+      </div>
+    </div>
+    <nav>
+      <div class="menu container">
+        <a href="#" class="active">Trang chủ</a>
+        <a href="#">K‑Pop</a>
+        <a href="#">Phim Hàn</a>
+        <a href="#">Ẩm thực</a>
+        <a href="#">Du lịch</a>
+        <a href="#">Kinh tế</a>
+        <a href="#">Thể thao</a>
+        <a href="#">Công nghệ</a>
+      </div>
+    </nav>
+    <div class="ticker">
+      <span class="dot"></span>
+      <div class="container small"><strong>BREAKING:</strong> Seoul tổ chức lễ hội ánh sáng năm 2025 • BLACKPINK công bố tour Châu Á • K‑League mở mùa giải mới</div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Headline -->
+    <section class="card headline">
+      <div>
+        <span class="k-badge">Văn hoá</span>
+        <h2 style="margin:.25rem 0 0">Hallyu lan toả: Những xu hướng văn hoá Hàn Quốc nổi bật năm 2025</h2>
+        <div class="meta muted">
+          <span>By Seoul Media</span><span class="sep">•</span>
+          <time datetime="2025-08-21">21/08/2025</time>
+          <span class="sep">•</span><span>8 phút đọc</span>
+        </div>
+        <p class="muted">Từ K‑drama đến ẩm thực đường phố, làn sóng Hallyu tiếp tục tạo cảm hứng cho giới trẻ toàn cầu, định hình phong cách sống và tiêu dùng.</p>
+        <div class="row">
+          <a class="btn primary" href="#">Đọc ngay</a>
+          <a class="btn" href="#">Lưu</a>
+        </div>
+      </div>
+      <div>
+        <img src="https://picsum.photos/seed/seoul/1024/640" class="hero" alt="Seoul skyline"/>
+      </div>
+    </section>
+
+    <div class="space"></div>
+
+    <!-- Content Grid -->
+    <section class="grid">
+      <!-- Articles -->
+      <div class="card">
+        <div class="row" style="justify-content:space-between; align-items:flex-end">
+          <h2 style="margin:0">Bài viết nổi bật</h2>
+          <a href="#" class="small muted">Xem tất cả →</a>
+        </div>
+        <div class="grid-articles" style="margin-top:14px">
+          <!-- Article card -->
+          <article class="article">
+            <img class="thumb" src="https://picsum.photos/seed/kpop/600/400" alt="K‑Pop" />
+            <span class="k-badge red">K‑Pop</span>
+            <h3>Top 10 sân khấu K‑Pop đáng xem nhất tháng này</h3>
+           <a href="top10kpop.html" target="_blank" class="muted small">
+  4 phút đọc • 20/08/2025
+</a>
+
+          </article>
+          <article class="article">
+            <img class="thumb" src="https://picsum.photos/seed/foodkr/600/400" alt="Ẩm thực Hàn Quốc" />
+            <span class="k-badge">Ẩm thực</span>
+           <h3>
+  <a href="bibimbapandkimchi.html" target="_blank">
+    Bibimbap vs. Kimchi: Câu chuyện sau hương vị
+  </a>
+</h3>
+
+            <div class="muted small">6 phút đọc • 18/08/2025</div>
+          </article>
+          <article class="article">
+            <img class="thumb" src="https://picsum.photos/seed/drama/600/400" alt="Phim Hàn" />
+            <span class="k-badge">Phim Hàn</span>
+            <a href="kdrama.html">
+  <a href="top5.html" target="_blank">
+ <h3>5 bộ K‑drama mới chiếu rạp không thể bỏ lỡ</h3
+
+           <div class="muted small">
+  <a href="kdrama.html">7 phút đọc • 17/08/2025</a>
+</div>
+
+          </article>
+          <article class="article">
+            <img class="thumb" src="https://picsum.photos/seed/techkr/600/400" alt="Công nghệ" />
+            <span class="k-badge">Công nghệ</span>
+           <a href="startup-ai.html">
+  <h3>Start-up Hàn Quốc dẫn đầu xu hướng AI giáo dục</h3>
+</a>
+
+            <div class="start.html">5 phút đọc • 15/08/2025</div>
+          </article>
+          <article class="article">
+            <img class="thumb" src="https://picsum.photos/seed/sportkr/600/400" alt="Thể thao" />
+            <span class="k-badge">Thể thao</span>
+            <h3>K‑League 2025: Những cái tên đáng chú ý</h3>
+<div class="league.html">3 phút đọc • 14/08/2025</div>
+
+
+          </article>
+          <article class="article">
+            <img class="thumb" src="https://picsum.photos/seed/travelkr/600/400" alt="Du lịch Hàn Quốc" />
+            <span class="k-badge">Du lịch</span>
+            <h3>Hướng dẫn 48h tại Busan: Biển, ẩm thực và chợ đêm</h3>
+            <div class="muted small">9 phút đọc • 12/08/2025</div>
+          </article>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="">
+        <div class="card side-section">
+          <h3 style="margin-top:0">Xu hướng</h3>
+          <div class="list">
+            <a href="#">
+              <img src="https://picsum.photos/seed/trend1/300/200" alt="Xu hướng 1" />
+              <div>
+                <div class="small muted">Kinh tế</div>
+                <strong>Hàn Quốc đẩy mạnh kinh tế sáng tạo</strong>
+              </div>
+            </a>
+            <a href="#">
+              <img src="https://picsum.photos/seed/trend2/300/200" alt="Xu hướng 2" />
+              <div>
+                <div class="small muted">Văn hoá</div>
+                <strong>Hanbok hiện đại trở lại đường phố</strong>
+              </div>
+            </a>
+            <a href="#">
+              <img src="https://picsum.photos/seed/trend3/300/200" alt="Xu hướng 3" />
+              <div>
+                <div class="small muted">Du lịch</div>
+                <strong>Jeju là điểm đến hot mùa thu</strong>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="card side-section">
+          <h3 style="margin-top:0">Bản tin email</h3>
+          <p class="muted small">Nhận tin tức Hàn Quốc mới nhất mỗi tuần.</p>
+          <form onsubmit="event.preventDefault(); alert('Đã đăng ký!');">
+            <input class="input" type="email" placeholder="Nhập email của bạn" required />
+            <div class="space"></div>
+            <button class="btn primary block" type="submit">Đăng ký ngay</button>
+          </form>
+        </div>
+
+        <div class="card side-section">
+          <h3 style="margin-top:0">Video</h3>
+          <div style="position:relative; padding-top:56.25%">
+            <iframe title="Seoul travel" src="https://www.youtube.com/embed/DZQEJv-Placeholder" allowfullscreen style="position:absolute; inset:0; width:100%; height:100%; border:0; border-radius:12px"></iframe>
+          </div>
+        </div>
+        <div class="card side-section">
+          <h3 style="margin-top:0">Bản đồ</h3>
+          <p class="muted small">Trụ sở Seoul Media (ví dụ): Seoul City Hall, Jung‑gu, Seoul.</p>
+          <div style="position:relative; padding-top:56.25%">
+            <iframe title="Bản đồ Google - Seoul" src="https://www.google.com/maps?q=Seoul%20City%20Hall&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="position:absolute; inset:0; width:100%; height:100%; border:0; border-radius:12px"></iframe>
+          </div>
+          <div class="space"></div>
+          <a class="btn block" href="https://maps.google.com/?q=Seoul%20City%20Hall" target="_blank" rel="noopener">Mở trong Google Maps</a>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="row" style="align-items:flex-start">
+          <div class="logo" style="width:36px;height:36px">한</div>
+          <div>
+            <strong>Seoul Media</strong>
+            <div class="muted small">Tin tức & văn hoá Hàn Quốc dành cho độc giả Việt Nam</div>
+          </div>
+        </div>
+        <div class="space"></div>
+        <div class="muted small">© 2025 Seoul Media. All rights reserved.</div>
+      </div>
+      <div>
+        <strong>Chuyên mục</strong>
+        <ul class="muted small">
+          <li><a href="#">K‑Pop</a></li>
+          <li><a href="#">Phim Hàn</a></li>
+          <li><a href="#">Ẩm thực</a></li>
+          <li><a href="#">Du lịch</a></li>
+        </ul>
+      </div>
+      <div>
+        <strong>Liên hệ</strong>
+        <ul class="muted small">
+          <li>Email: hello@seoulmedia.kr</li>
+          <li>Facebook • Instagram • YouTube</li>
+          <li>Quảng cáo • Hợp tác nội dung</li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Dark / Light mode toggle (persist with localStorage)
+    const root = document.documentElement;
+    const key = 'seoul-media-theme';
+    const saved = localStorage.getItem(key);
+    if(saved === 'light'){ root.classList.add('light'); }
+
+    document.getElementById('modeToggle').addEventListener('click', () => {
+      root.classList.toggle('light');
+      localStorage.setItem(key, root.classList.contains('light') ? 'light' : 'dark');
+    });
+  </script>
+</body>
+</html>
