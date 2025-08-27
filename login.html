@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>로그인 페이지</title>
+  <style>
+    body {
+      font-family: "Noto Sans KR", sans-serif;
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      color: #fff;
+    }
+    .login-container {
+      background: #1e293b;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+      width: 360px;
+      text-align: center;
+      position: relative;
+    }
+    h1 {
+      margin-bottom: 20px;
+      font-size: 24px;
+      color: #38bdf8;
+    }
+    label {
+      display: block;
+      text-align: left;
+      margin: 10px 0 5px;
+      font-weight: bold;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #3b82f6;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    button:hover {
+      background: #2563eb;
+    }
+    .message {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    .success { color: #22c55e; }
+    .error { color: #ef4444; }
+    .links {
+      margin-top: 15px;
+      font-size: 14px;
+    }
+    .links a {
+      color: #38bdf8;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+    .links a:hover {
+      text-decoration: underline;
+    }
+    .social-login {
+      margin-top: 20px;
+    }
+    .social-login p {
+      margin-bottom: 10px;
+      color: #94a3b8;
+    }
+    .social-btn {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .kakao { background: #FEE500; color: #000; }
+    .naver { background: #03C75A; color: #fff; }
+    .google { background: #fff; color: #000; border: 1px solid #ccc; }
+    .facebook { background: #1877f2; color: #fff; }
+    .apple { background: #000; color: #fff; }
+    .lang-select {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: #0f172a;
+      color: white;
+      border: 1px solid #475569;
+      border-radius: 6px;
+      padding: 5px;
+    }
+  </style>
+</head>
+<body>
+  <select id="lang" class="lang-select" onchange="changeLang()">
+    <option value="ko">한국어</option>
+    <option value="en">English</option>
+    <option value="vi">Tiếng Việt</option>
+  </select>
+
+  <div class="login-container">
+    <h1 id="title">로그인</h1>
+
+    <form onsubmit="return login(event)">
+      <label id="email-label" for="email">이메일</label>
+      <input type="text" id="email" placeholder="이메일 입력" required>
+
+      <label id="password-label" for="password">비밀번호</label>
+      <input type="password" id="password" placeholder="비밀번호 입력" required>
+
+      <button type="submit" id="login-btn">로그인</button>
+    </form>
+
+    <p id="message" class="message"></p>
+
+    <div class="links">
+      <a href="#" id="signup">회원가입</a> | 
+      <a href="#" id="forgot">비밀번호 찾기</a> | 
+      <a href="truyenthongkorea.html">➡️ Truyền Thông Korea</a>
+    </div>
+
+    <div class="social-login">
+      <p id="social-text">다른 계정으로 로그인</p>
+      <button class="social-btn kakao">카카오톡 로그인</button>
+      <button class="social-btn naver">네이버 로그인</button>
+      <button class="social-btn google">Google 로그인</button>
+      <button class="social-btn facebook">Facebook 로그인</button>
+      <button class="social-btn apple">Apple 로그인</button>
+    </div>
+  </div>
+
+  <script>
+    // ✅ Tài khoản demo
+    const users = [
+      { email: "admin@korea.com", password: "123456" },
+      { email: "user@korea.com", password: "password" },
+      { email: "test@korea.com", password: "korea123" }
+    ];
+
+    // Đa ngôn ngữ
+    const translations = {
+      ko: {
+        title: "로그인",
+        email: "이메일",
+        emailPh: "이메일 입력",
+        password: "비밀번호",
+        passwordPh: "비밀번호 입력",
+        login: "로그인",
+        signup: "회원가입",
+        forgot: "비밀번호 찾기",
+        social: "다른 계정으로 로그인",
+        success: "✅ 로그인 성공!",
+        fail: "❌ 이메일 또는 비밀번호가 올바르지 않습니다."
+      },
+      en: {
+        title: "Login",
+        email: "Email",
+        emailPh: "Enter your email",
+        password: "Password",
+        passwordPh: "Enter your password",
+        login: "Login",
+        signup: "Sign Up",
+        forgot: "Forgot Password?",
+        social: "Login with another account",
+        success: "✅ Login successful!",
+        fail: "❌ Incorrect email or password."
+      },
+      vi: {
+        title: "Đăng nhập",
+        email: "Email",
+        emailPh: "Nhập email",
+        password: "Mật khẩu",
+        passwordPh: "Nhập mật khẩu",
+        login: "Đăng nhập",
+        signup: "Đăng ký",
+        forgot: "Quên mật khẩu?",
+        social: "Đăng nhập bằng tài khoản khác",
+        success: "✅ Đăng nhập thành công!",
+        fail: "❌ Email hoặc mật khẩu sai."
+      }
+    };
+
+    function changeLang() {
+      const lang = document.getElementById("lang").value;
+      const t = translations[lang];
+
+      document.getElementById("title").textContent = t.title;
+      document.getElementById("email-label").textContent = t.email;
+      document.getElementById("email").placeholder = t.emailPh;
+      document.getElementById("password-label").textContent = t.password;
+      document.getElementById("password").placeholder = t.passwordPh;
+      document.getElementById("login-btn").textContent = t.login;
+      document.getElementById("signup").textContent = t.signup;
+      document.getElementById("forgot").textContent = t.forgot;
+      document.getElementById("social-text").textContent = t.social;
+    }
+
+    function login(event) {
+      event.preventDefault();
+
+      const lang = document.getElementById("lang").value;
+      const t = translations[lang];
+
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const message = document.getElementById("message");
+
+      const user = users.find(u => u.email === email && u.password === password);
+
+      if (user) {
+        message.textContent = t.success;
+        message.className = "message success";
+
+        setTimeout(() => {
+          window.location.href = "truyenthongkorea.html";
+        }, 1500);
+
+      } else {
+        message.textContent = t.fail;
+        message.className = "message error";
+      }
+    }
+  </script>
+</body>
+</html>
